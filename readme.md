@@ -1,4 +1,18 @@
-**Course Title**: Mastering React Native Development
+**Course Title**: React Native Development
+
+May 15th - 17th
+Kevin Cunningham
+Miro link: https://miro.com/app/board/uXjVMKqGS8U=/?share_link_id=626408902107
+
+Timings:
+
+9:30-11 Session 1
+11-11.15 Coffee
+11.15-12.45 Session 2
+12.45-1.45 Lunch
+1.45-3.15 Session 3
+3.15-3.30 Tea
+3.30-4.30 Session 4
 
 ---
 
