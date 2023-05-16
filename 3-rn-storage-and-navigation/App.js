@@ -4,7 +4,7 @@ import SecureStorage from "./components/SecureStorage";
 import TodoApp from "./components/TodoApp";
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View>
       <TodoApp />
       <StatusBar style="auto" />
     </View>
