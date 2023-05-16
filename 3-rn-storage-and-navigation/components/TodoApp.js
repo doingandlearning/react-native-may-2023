@@ -25,7 +25,7 @@ export default function TodoApp() {
     // - if no, create the table (and then get the todos)
     db.transaction((tx) => {
       tx.executeSql(
-        "CREATE table if not exists items (id integer primary key not null, done int, value text"
+        "CREATE table if not exists items (id integer primary key not null, done int, value text);"
       );
     });
   }, []);
