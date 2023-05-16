@@ -1,4 +1,3 @@
-
 **React Native Review Exercise 2**
 
 Begin a new React Native app and import react-navigation into it (plus other dependencies). 
