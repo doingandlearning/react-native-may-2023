@@ -28,3 +28,19 @@ export default function useMovies() {
 
   return { movies, isLoading };
 }
+
+// const postMovie = async () => {
+//   try {
+//     const response = await fetch("https://reactnative.dev/movies.json", {
+//       method: "POST",
+//       body: JSON.stringify({ title: "Amazing Spiderman", year: 2020 }),
+//       headers: {
+//         "Content-type": "application/json",
+//       },
+//     });
+//     const json = await response.json();
+//     setData(json.movies);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
