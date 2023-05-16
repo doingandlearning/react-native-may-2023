@@ -1,4 +1,11 @@
-import { StyleSheet, View, Text, TextInput, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  ScrollView,
+  Button,
+} from "react-native";
 import Constants from "expo-constants";
 import React from "react";
 import * as SQLite from "expo-sqlite";
@@ -17,7 +24,7 @@ function openDatabase() {
 
 const db = openDatabase();
 
-export default function TodoApp() {
+export default function TodoApp({ navigation }) {
   const [text, setText] = React.useState("");
   const [items, setItems] = React.useState([]);
 
@@ -84,7 +91,7 @@ export default function TodoApp() {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>SQLite Example</Text>
-
+      <Button title="About" onPress={() => navigation.navigate("About")} />
       {Platform.OS === "web" ? (
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
