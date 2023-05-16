@@ -1,7 +1,8 @@
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import { StyleSheet, View, Text, TextInput, ScrollView } from "react-native";
 import Constants from "expo-constants";
 import React from "react";
 import * as SQLite from "expo-sqlite";
+import Items from "./Items";
 
 // Opening db connection
 
@@ -18,34 +19,100 @@ const db = openDatabase();
 
 export default function TodoApp() {
   const [text, setText] = React.useState("");
+  const [items, setItems] = React.useState([]);
 
   React.useEffect(() => {
-    // Check if the table exists:
-    // - if yes, get the todos
-    // - if no, create the table (and then get the todos)
     db.transaction((tx) => {
       tx.executeSql(
-        "CREATE table if not exists items (id integer primary key not null, done int, value text);"
+        "create table if not exists items (id integer primary key not null, done int, value text);"
       );
+      tx.executeSql("select * from items", [], (_, { rows: { _array } }) => {
+        setItems(_array);
+      });
     });
   }, []);
 
-  const add = () => {};
+  const add = (text) => {
+    if (!text) return;
+
+    db.transaction(
+      (tx) => {
+        tx.executeSql("insert into items (done, value) values (0, ?)", [text]);
+      },
+      null,
+      () => {
+        db.transaction((tx) => {
+          tx.executeSql(
+            "select * from items",
+            [],
+            (_, { rows: { _array } }) => {
+              setItems(_array);
+            }
+          );
+        });
+      }
+    );
+  };
+
+  const setTodoData = (id, done) => {
+    db.transaction(
+      (tx) => {
+        if (done) {
+          tx.executeSql(`delete from items where id = ?;`, [id]);
+        } else {
+          tx.executeSql(`update items set done = 1 where id = ?;`, [id]);
+        }
+      },
+      null,
+      () => {
+        db.transaction((tx) => {
+          tx.executeSql(
+            "select * from items",
+            [],
+            (_, { rows: { _array } }) => {
+              setItems(_array);
+            }
+          );
+        });
+      }
+    );
+  };
+
+  const undoneItems = items.filter((item) => !item.done);
+  const doneItems = items.filter((item) => item.done);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Howden's Todo</Text>
-      <View style={styles.flexRow}>
-        <TextInput
-          style={styles.input}
-          onChangeText={setText}
-          value={text}
-          onSubmitEditing={() => {
-            add(text);
-            setText("");
-          }}
-        />
-      </View>
+      <Text style={styles.heading}>SQLite Example</Text>
+
+      {Platform.OS === "web" ? (
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <Text style={styles.heading}>
+            Expo SQlite is not supported on web!
+          </Text>
+        </View>
+      ) : (
+        <>
+          <View style={styles.flexRow}>
+            <TextInput
+              onChangeText={(text) => setText(text)}
+              onSubmitEditing={() => {
+                add(text);
+                setText(null);
+              }}
+              placeholder="what do you need to do?"
+              style={styles.input}
+              value={text}
+            />
+          </View>
+          <ScrollView style={styles.listArea}>
+            <Items done={false} items={undoneItems} setTodoData={setTodoData} />
+            <Items done={true} items={doneItems} setTodoData={setTodoData} />
+          </ScrollView>
+        </>
+      )}
     </View>
   );
 }
