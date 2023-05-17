@@ -43,3 +43,21 @@ Add a test command to your scripts block:
 ```
 
 and you're ready to go!
+
+To get Jest autocomplete add a jsconfig.json file with these contents:
+
+```
+{
+	"typeAcquisition": {
+			"include": [
+					"jest"
+			]
+	}
+}
+```
+
+and install the Jest types
+
+```
+npm install @types/jest
+```
