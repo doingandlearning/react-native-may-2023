@@ -8,8 +8,14 @@ export default function CustomPicker({
 }) {
   return (
     <Picker selectedValue={value} onValueChange={setValue} style={{ width }}>
-      {options.map((option) => {
-        return <Picker.Item label={option} value={option} key={option} />;
+      {options.map((option, index) => {
+        return (
+          <Picker.Item
+            label={`${index + 1} - ${option}`}
+            value={option}
+            key={option}
+          />
+        );
       })}
     </Picker>
   );

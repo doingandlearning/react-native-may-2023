@@ -12,7 +12,7 @@ export default function CustomSwitch({ label, value, setValue }) {
       <Text style={[{ paddingRight: 30 }, value && { color: "green" }]}>
         {label}
       </Text>
-      <Switch value={value} onValueChange={setValue}></Switch>
+      <Switch value={value} onValueChange={setValue} testID="switch"></Switch>
     </View>
   );
 }

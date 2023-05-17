@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Picker component renders properly The Picker component renders properly 1`] = `
+<View
+  style={
+    {
+      "width": 300,
+    }
+  }
+>
+  <RNCPicker
+    items={
+      [
+        {
+          "label": "1 - Do something",
+          "testID": undefined,
+          "textColor": undefined,
+          "value": "Do something",
+        },
+        {
+          "label": "2 - Don't do something",
+          "testID": undefined,
+          "textColor": undefined,
+          "value": "Don't do something",
+        },
+      ]
+    }
+    numberOfLines={1}
+    onChange={[Function]}
+    selectedIndex={0}
+    style={
+      [
+        {
+          "height": 216,
+        },
+        undefined,
+      ]
+    }
+  />
+</View>
+`;

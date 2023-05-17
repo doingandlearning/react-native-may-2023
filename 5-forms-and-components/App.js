@@ -6,6 +6,7 @@ import Picker from "./components/Picker";
 import Slider from "./components/Slider";
 import BottomSheet from "./components/SlidingUp";
 import FormikForm from "./components/FormikForm";
+import StarWarsList from "./components/StarWarsList";
 
 export default function App() {
   const [fun, setFun] = React.useState(false);
@@ -24,7 +25,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <FormikForm />
+      {/* <FormikForm /> */}
+      <StarWarsList />
       {/* <View style={styles.container}>
         <Text>
           You are {fun ? "having fun" : "not having fun"} doing{" "}
