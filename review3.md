@@ -6,6 +6,7 @@ In a new React Native App, create a view containing a FlatList that displays dat
 
 1. Import the JSON data directly into your component.
 2. Create a separate `Photo` component that takes in a photo object as a prop and displays the photo's details.
+
 3. Use a FlatList to display the `Photo` component for each photo in the data.
 
 **Task 2: Add Navigation**
@@ -15,6 +16,18 @@ In a new React Native App, create a view containing a FlatList that displays dat
 **Task 3: Implement Image Loading**
 
 1. Instead of just displaying the text data for the photos, display the actual images using the `Image` component from React Native.
+
+```js
+      <Image
+        source={require("../assets/cat.jpg")}
+        style={{
+          width: imageWidth,
+          height: 155,
+          marginBottom: 100,
+          transform: [{ rotate: "315deg" }],
+        }}
+      />
+```
 
 **Task 4: Enhance Testing**
 
@@ -35,12 +48,6 @@ In your `App.js` or a separate screen, add a form with fields for the photo deta
 
 Create a function that adds the new photo to the list when the form is submitted. This function should update the state with the new list of photos, which will cause the component to re-render and the new photo to appear in the list.
 
-
-**3. Update the Optional Task:**
-
-For the optional task, update the functionality to also persist the new photos added through the form. When the app is closed and reopened, the new photos should still appear in the list.
-
-This modification will give students practice with handling user input, updating component state, and working with forms in React Native.
 
 **Optional: Add Data Persistence**
 
