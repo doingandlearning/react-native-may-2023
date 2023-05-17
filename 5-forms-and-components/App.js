@@ -5,6 +5,7 @@ import Switch from "./components/Switch";
 import Picker from "./components/Picker";
 import Slider from "./components/Slider";
 import BottomSheet from "./components/SlidingUp";
+import FormikForm from "./components/FormikForm";
 
 export default function App() {
   const [fun, setFun] = React.useState(false);
@@ -22,8 +23,9 @@ export default function App() {
   ];
 
   return (
-    <>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <FormikForm />
+      {/* <View style={styles.container}>
         <Text>
           You are {fun ? "having fun" : "not having fun"} doing{" "}
           {currentActivity} (rated {Math.floor(funAmount)})
@@ -42,8 +44,8 @@ export default function App() {
         details={[
           { icon: "😃", title: "Free BBQ", description: "Gas or coal" },
         ]}
-      />
-    </>
+      /> */}
+    </View>
   );
 }
 
