@@ -72,3 +72,17 @@ Timings:
 **11. Deploying**
    - Introduction to EAS Build for building and deploying React Native apps. Learn about EAS Build, EAS Submit, and EAS Update.
    - Learn about local builds.
+
+
+
+## To prebuild
+
+```
+npx expo prebuild
+```
+
+If you make a mistake
+
+```
+npx expo prebuild --clean
+```
