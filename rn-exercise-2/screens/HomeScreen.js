@@ -2,27 +2,12 @@ import React, { useState } from "react";
 import { View, TextInput, Button, StyleSheet, Dimensions } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Image } from "react-native";
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 16,
-    backgroundColor: "white",
-  },
-  input: {
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 8,
-  },
-});
+import { styles } from "./HomeScreenStyles";
+import TextInputComponent from "../components/TextInputComponent";
 
 const HomeScreen = ({ navigation }) => {
-  const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
-
+  const [city, setCity] = useState("");
   const fetchWeatherData = async () => {
     try {
       const response = await fetch(
@@ -58,18 +43,24 @@ const HomeScreen = ({ navigation }) => {
           transform: [{ rotate: "315deg" }],
         }}
       />
-      <TextInput
-        style={styles.input}
+
+      <TextInputComponent
         placeholder="City"
         value={city}
-        onChangeText={setCity}
+        setValue={setCity}
+        borderWidth={10}
+        borderColor="blue"
+        style={{ color: "red" }}
+        specialOffer={true}
       />
-      <TextInput
-        style={styles.input}
+
+      <TextInputComponent
         placeholder="Country"
         value={country}
-        onChangeText={setCountry}
+        setValue={setCountry}
+        specialOffer={true}
       />
+
       <Button title="Fetch Weather" onPress={fetchWeatherData} />
       <Button
         title="View History"
