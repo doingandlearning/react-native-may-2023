@@ -5,6 +5,7 @@ import {
   TextInput,
   ScrollView,
   Button,
+  Platform,
 } from "react-native";
 import Constants from "expo-constants";
 import React from "react";

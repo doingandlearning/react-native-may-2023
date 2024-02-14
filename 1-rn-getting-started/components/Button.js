@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
+  Pressable,
 } from "react-native";
 
 export default function CustomButton() {
@@ -23,6 +24,9 @@ export default function CustomButton() {
       >
         <Text>Click me instead!</Text>
       </TouchableOpacity>
+      <Pressable>
+        <Text>Press me instead!</Text>
+      </Pressable>
     </>
   );
 }

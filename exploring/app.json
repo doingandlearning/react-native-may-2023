@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "3-rn-storage-and-navigation",
-    "slug": "3-rn-storage-and-navigation",
+    "name": "exploring",
+    "slug": "exploring",
+    "scheme": "exploring",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,7 +28,7 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-secure-store"
+      "expo-router"
     ]
   }
 }
